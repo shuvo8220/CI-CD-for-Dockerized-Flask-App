@@ -32,12 +32,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest
+          pip install google-generativeai
 
       - name: Run tests
         run: pytest
 
       - name: AI Linter (Gemini)
-        run: python ai/gemini_linter.py ./app.py   # ✅ সঠিক path
+        run: python ai/gemini_linter.py ./app.py   
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
