@@ -7,7 +7,7 @@ if not GEMINI_API_KEY:
     raise EnvironmentError("Missing GEMINI_API_KEY")
 
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-1.5-pro')
 
 file_path = sys.argv[1]
 with open(file_path, 'r') as f:
