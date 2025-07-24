@@ -3,10 +3,12 @@ from ollama import Client
 # Connect to local Ollama
 client = Client(host='http://localhost:11434')
 
-# Prompt for CI/CD prediction
+# Prediction prompt
 prompt = """
-<|System|>: You are a CI/CD pipeline prediction assistant. You will be given past build logs and a new build scenario. Predict whether the build will succeed or fail.
-<|User|>: 
+You are a CI/CD pipeline prediction assistant.
+You will be given past build logs and a new build scenario.
+Predict whether the build will succeed or fail.
+
 Historical Build Logs:
 - Build 1: tests passed, lint passed, docker pushed → Success
 - Build 2: tests failed, lint passed, docker pushed → Fail
@@ -18,18 +20,18 @@ Current Build:
 - docker pushed: True
 
 Answer only with "Success" or "Fail" and explain why in one sentence.
-<|Assistant|>:
 """
 
-# Generate response using DeepSeek model
+# Generate prediction
 response = client.generate(
-    model='llama2:7b-chat',
+    model='llama2:7b-chat',  # Make sure this is pulled with `ollama pull llama2:7b-chat`
     prompt=prompt,
     stream=False
 )
 
-# Show prediction
+# Show result
 print("🔮 Prediction:\n")
 print(response['response'].strip())
+
 
 
