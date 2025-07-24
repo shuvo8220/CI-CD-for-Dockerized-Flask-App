@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build the Docker Image
-        run: docker build . --file Dockerfile --tag workflow-test:$(date +%s)
+        run: docker build . --C:\Users\DELL\Desktop\CVPR\dockerimagehub\Dockerfile --tag workflow-test:$(date +%s)
 
   build-and-test:
     runs-on: ubuntu-latest
@@ -66,6 +66,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/flasktest-app:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}shuvosaha8220/flasktest-app:latest
 
 
