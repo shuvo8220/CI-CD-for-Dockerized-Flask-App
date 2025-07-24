@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build the Docker Image
-        run: docker build . --file infra/DockerFile --tag workflow-test:$(date +%s)
+        run: docker build . --file DockerFile --tag workflow-test:$(date +%s)
 
   build-and-test:
     runs-on: ubuntu-latest
