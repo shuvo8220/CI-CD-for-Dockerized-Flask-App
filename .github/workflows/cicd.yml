@@ -66,6 +66,6 @@ jobs:
           context: .
           file: ./DockerFile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/ai-cicd-pipeline:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}shuvosaha8220 /ai-cicd-pipeline:latest
 
 
